@@ -29,7 +29,7 @@ class ArrivalBeforeDepartureSpecificationTests {
 
     @Test
     void validArrivalBeforeDepartureSpecificationTest() {
-        Segment segment = new Segment(LocalDateTime.of(2025,10,1, 16, 24),LocalDateTime.of(2025,10,1, 18, 58));
+        Segment segment = new Segment(LocalDateTime.now(),LocalDateTime.now().plusHours(10));
         segments.add(segment);
 
         boolean satisfiedBy = arrivalBeforeDepartureSpecification.isSatisfiedBy(flight);
@@ -38,7 +38,7 @@ class ArrivalBeforeDepartureSpecificationTests {
 
     @Test
     void invalidArrivalBeforeDepartureSpecificationTest() {
-        Segment segment = new Segment(LocalDateTime.of(2025,10,1, 16, 24),LocalDateTime.of(2025,10,1, 9, 58));
+        Segment segment = new Segment(LocalDateTime.now(),LocalDateTime.now().minusHours(10));
         segments.add(segment);
 
         boolean satisfiedBy = arrivalBeforeDepartureSpecification.isSatisfiedBy(flight);

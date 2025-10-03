@@ -29,8 +29,8 @@ class MoreTwoHoursBetweenFlightsSpecificationTests {
 
     @Test
     void validMoreTwoHoursBetweenFlightsSpecificationTest() {
-        Segment segmentOne = new Segment(LocalDateTime.of(2025,10,1, 16, 24),LocalDateTime.of(2025,10,1, 17, 58));
-        Segment segmentTwo = new Segment(LocalDateTime.of(2025,10,1, 18, 24),LocalDateTime.of(2025,10,1, 19, 58));
+        Segment segmentOne = new Segment(LocalDateTime.now(),LocalDateTime.now().plusMinutes(30));
+        Segment segmentTwo = new Segment(LocalDateTime.now().plusHours(1),LocalDateTime.now().plusHours(2));
         segments.add(segmentOne);
         segments.add(segmentTwo);
 
@@ -40,8 +40,8 @@ class MoreTwoHoursBetweenFlightsSpecificationTests {
 
     @Test
     void invalidMoreTwoHoursBetweenFlightsSpecificationTest() {
-        Segment segmentOne = new Segment(LocalDateTime.of(2025,10,1, 16, 24),LocalDateTime.of(2025,10,1, 17, 58));
-        Segment segmentTwo = new Segment(LocalDateTime.of(2025,10,1, 20, 24),LocalDateTime.of(2025,10,1, 21, 58));
+        Segment segmentOne = new Segment(LocalDateTime.now(),LocalDateTime.now().plusMinutes(30));
+        Segment segmentTwo = new Segment(LocalDateTime.now().plusHours(3),LocalDateTime.now().plusHours(4));
         segments.add(segmentOne);
         segments.add(segmentTwo);
 

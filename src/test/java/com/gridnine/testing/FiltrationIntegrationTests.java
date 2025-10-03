@@ -19,7 +19,7 @@ class FiltrationIntegrationTests {
 
     @BeforeEach
     void setUp() {
-        Segment segment = new Segment(LocalDateTime.of(2025,10,3, 16, 24),LocalDateTime.of(2025,10,4, 18, 58));
+        Segment segment = new Segment(LocalDateTime.now(),LocalDateTime.now().plusHours(10));
         segments = new ArrayList<>();
         segments.add(segment);
         flight = new Flight(segments);

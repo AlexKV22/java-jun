@@ -29,7 +29,7 @@ class EarlyLocalTimeDepartureSpecificationTests {
 
     @Test
     void validEarlyLocalTimeDepartureSpecificationTest() {
-        Segment segment = new Segment(LocalDateTime.of(2025,10,1, 21, 24),LocalDateTime.of(2025,10,1, 22, 58));
+        Segment segment = new Segment(LocalDateTime.now().plusHours(10),LocalDateTime.now().plusHours(15));
         segments.add(segment);
 
         boolean satisfiedBy = earlyLocalTimeDepartureSpecification.isSatisfiedBy(flight);
@@ -38,7 +38,7 @@ class EarlyLocalTimeDepartureSpecificationTests {
 
     @Test
     void invalidEarlyLocalTimeDepartureSpecificationTest() {
-        Segment segment = new Segment(LocalDateTime.of(2025,10,1, 12, 24),LocalDateTime.of(2025,10,1, 13, 58));
+        Segment segment = new Segment(LocalDateTime.now().minusHours(15),LocalDateTime.now().minusHours(10));
         segments.add(segment);
 
         boolean satisfiedBy = earlyLocalTimeDepartureSpecification.isSatisfiedBy(flight);
